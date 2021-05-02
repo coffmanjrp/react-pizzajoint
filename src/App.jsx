@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { Base, Header, Home, Order, Toppings } from './components';
+import { Base, Header, Home, Modal, Order, Toppings } from './components';
 import { AnimatePresence } from 'framer-motion';
 
 export default function App() {
+  const [showModal, setShowModal] = useState(false);
   const [pizza, setPizza] = useState({ base: '', toppings: [] });
   const location = useLocation();
 
@@ -26,7 +27,11 @@ export default function App() {
   return (
     <>
       <Header />
-      <AnimatePresence exitBeforeEnter>
+      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <AnimatePresence
+        exitBeforeEnter
+        onExitComplete={() => setShowModal(false)}
+      >
         <Switch key={location.key} location={location}>
           <Route path="/base">
             <Base addBase={addBase} pizza={pizza} />
@@ -35,7 +40,7 @@ export default function App() {
             <Toppings addTopping={addTopping} pizza={pizza} />
           </Route>
           <Route path="/order">
-            <Order pizza={pizza} />
+            <Order pizza={pizza} setShowModal={setShowModal} />
           </Route>
           <Route path="/">
             <Home />
