@@ -25,10 +25,10 @@ export default function App() {
     <>
       <Header />
       <Switch>
-        <Route>
+        <Route path="/base">
           <Base addBase={addBase} pizza={pizza} />
         </Route>
-        <Route>
+        <Route path="/toppings">
           <Toppings addTopping={addTopping} pizza={pizza} />
         </Route>
         <Route path="/order">
