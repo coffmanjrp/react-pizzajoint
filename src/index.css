@@ -142,3 +142,12 @@ li span.active::before {
   font-weight: bold;
   color: #444;
 }
+
+/* loader */
+.loader {
+  margin: 40px auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
