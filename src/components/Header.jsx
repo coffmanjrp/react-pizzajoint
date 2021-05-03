@@ -27,7 +27,12 @@ const pathVariables = {
 export default function Header() {
   return (
     <header>
-      <div className="logo">
+      <motion.div
+        className="logo"
+        drag
+        dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+        dragElastic={0.2}
+      >
         <motion.svg
           className="pizza-svg"
           variants={svgVariables}
@@ -47,7 +52,7 @@ export default function Header() {
             d="M50 30 L50 -10 C50 -10 90 -10 90 30 Z"
           />
         </motion.svg>
-      </div>
+      </motion.div>
       <motion.div
         className="title"
         initial={{ y: -250 }}
