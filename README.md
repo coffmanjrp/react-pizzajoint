@@ -7,7 +7,7 @@
 1. Clone this repository.
 
 ```
-git clone git@github.com:coffmanjrp/react-github-profiles.git
+git clone git@github.com:coffmanjrp/react-pizzajoint.git
 ```
 
 Or download the zip file.
